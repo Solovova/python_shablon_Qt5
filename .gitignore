@@ -1,0 +1,4 @@
+file/
+__pycache__/
+.vscode/
+.qt_for_python/
