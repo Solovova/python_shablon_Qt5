@@ -1,0 +1,3 @@
+#Begin Script
+############Plotters for Temp Drive###############
+invoke-expression 'cmd /c start powershell -NoExit -Command {cd "C:\Users\solo\AppData\Local\chia-blockchain\app-1.1.6\resources\app.asar.unpacked\daemon\";$host.ui.RawUI.WindowTitle = "Tread1 SSD1 -> E:\Plot1"; start-sleep -s 10 ; .\chia.exe plots create -k 32 -b 5000 -u 128 -r 2 -t D:\t1 -d E:\plot1 -n 1 ;Read-Host -Prompt "press enter to exit"}'
