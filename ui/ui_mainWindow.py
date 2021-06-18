@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '.\ui_mainWindow.ui'
+# Form implementation generated from reading ui file '.\ui\ui_mainWindow.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -27,14 +27,17 @@ class Ui_MainWindow(object):
         self.textBrowser.setGeometry(QtCore.QRect(130, 130, 256, 192))
         self.textBrowser.setObjectName("textBrowser")
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(420, 130, 47, 13))
+        self.label.setGeometry(QtCore.QRect(320, 50, 47, 13))
         self.label.setObjectName("label")
         self.listView = QtWidgets.QListView(self.centralwidget)
         self.listView.setGeometry(QtCore.QRect(130, 330, 256, 192))
         self.listView.setObjectName("listView")
         self.pushButton_TestTread = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_TestTread.setGeometry(QtCore.QRect(500, 210, 211, 23))
+        self.pushButton_TestTread.setGeometry(QtCore.QRect(530, 50, 211, 23))
         self.pushButton_TestTread.setObjectName("pushButton_TestTread")
+        self.listWidget = QtWidgets.QListWidget(self.centralwidget)
+        self.listWidget.setGeometry(QtCore.QRect(440, 170, 341, 192))
+        self.listWidget.setObjectName("listWidget")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 21))

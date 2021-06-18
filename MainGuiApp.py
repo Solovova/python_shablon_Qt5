@@ -1,7 +1,7 @@
 from Threads.ThreadMain import ThreadMain
 from contextlib import nullcontext
 from PyQt5 import QtWidgets
-import ui_mainWindow
+from ui.ui_mainWindow import Ui_MainWindow
 
 from file.FileWork import FileWork
 import subprocess
@@ -9,11 +9,32 @@ import io
 import win32api
 import win32gui
 
+from PyQt5 import QtCore, QtGui, QtWidgets
+from UITreadWidget import UITreadWidget
 
-class MainGuiApp(QtWidgets.QMainWindow, ui_mainWindow.Ui_MainWindow):
+
+class MainGuiApp(QtWidgets.QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
         super(MainGuiApp, self).__init__(parent)
         self.setupUi(self)
+
+
+
+        itemN = QtWidgets.QListWidgetItem()
+        widget = UITreadWidget()
+
+        # itemN.setSizeHint(QtCore.QSize(212, 40))
+        
+        itemN.setSizeHint(widget.size())
+        self.listWidget.addItem(itemN)
+        self.listWidget.setItemWidget(itemN, widget)
+
+        itemN = QtWidgets.QListWidgetItem()
+        widget = UITreadWidget()
+        # itemN.setSizeHint(QtCore.QSize(212, 40))
+        itemN.setSizeHint(widget.size())
+        self.listWidget.addItem(itemN)
+        self.listWidget.setItemWidget(itemN, widget)
 
         self.pushButton_1.clicked.connect(self.say_hello)
         self.pushButton_2.clicked.connect(self.runScript)
