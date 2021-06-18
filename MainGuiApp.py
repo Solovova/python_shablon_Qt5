@@ -5,6 +5,8 @@ import ui_mainWindow
 from file.FileWork import FileWork
 import subprocess
 import io
+import win32api
+import win32gui
 
 
 class MainGuiApp(QtWidgets.QMainWindow, ui_mainWindow.Ui_MainWindow):
@@ -18,17 +20,29 @@ class MainGuiApp(QtWidgets.QMainWindow, ui_mainWindow.Ui_MainWindow):
     def say_hello(self):   
         paths = ["C:\plot","E:\plot1","F:\plot2","F:\plotall","G:\plot","E:\plotall"]
         fileWork: FileWork = FileWork(paths)
-        fileWork.printAllFiles()
+        fileWork.fillPrintDublicates()
 
 
     def runScript(self):
-        scrname = "C:\\prog\\pyth\\python_shablon_Qt5\\scripts\\Tread1.ps1"
-        p = subprocess.Popen(['powershell.exe', scrname], stdout=subprocess.PIPE)
+        # scrname = "C:\\prog\\pyth\\python_shablon_Qt5\\scripts\\Tread1.ps1"
+        # p = subprocess.Popen(['powershell.exe', scrname], stdout=subprocess.PIPE)
 
-        f = open("tread1.txt", "a")
+        # f = open("tread1.txt", "a")
         
-        for line in io.TextIOWrapper(p.stdout, encoding="utf-8"):  # or another encoding
-            f.write(line)
-            print(line)
-        f.close()
+        # for line in io.TextIOWrapper(p.stdout, encoding="utf-8"):  # or another encoding
+        #     f.write(line)
+        #     print(line)
+        # f.close()
+        
+        whnd = win32gui.FindWindowEx(None, None, None, 'Tread1')
+        if not (whnd == 0):
+            # rect = win32gui.GetWindowRect(whnd)
+            # rect.left = 0
+            # rect.top = 0
+            # rect.right = 100
+            # rect.bottom = 100
+            print(win32gui.GetWindowRect(whnd))
+        
+
+            print('FOUND!')
         print("Ennnnnd")
