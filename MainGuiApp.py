@@ -1,3 +1,4 @@
+from Threads.ThreadMain import ThreadMain
 from contextlib import nullcontext
 from PyQt5 import QtWidgets
 import ui_mainWindow
@@ -16,6 +17,7 @@ class MainGuiApp(QtWidgets.QMainWindow, ui_mainWindow.Ui_MainWindow):
 
         self.pushButton_1.clicked.connect(self.say_hello)
         self.pushButton_2.clicked.connect(self.runScript)
+        self.pushButton_TestTread.clicked.connect(self.runThread)
 
     def say_hello(self):   
         paths = ["C:\plot","E:\plot1","F:\plot2","F:\plotall","G:\plot","E:\plotall"]
@@ -46,3 +48,9 @@ class MainGuiApp(QtWidgets.QMainWindow, ui_mainWindow.Ui_MainWindow):
 
             print('FOUND!')
         print("Ennnnnd")
+    
+    def runThread(self):
+        print("RunThread")
+        self.thread1 = ThreadMain()
+        self.thread1.start()
+        #self.thread1.join()

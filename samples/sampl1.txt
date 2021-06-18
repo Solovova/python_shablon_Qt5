@@ -1,0 +1,63 @@
+Пример вызова внешней программы или команды. Следующий код:
+
+cmd='echo A; echo B; echo C'
+
+print 'Команда: '+cmd
+
+p=Popen(cmd, stdout=PIPE, shell=True)
+
+stdoutdata, stderrdata = p.communicate()
+
+errorCode=p.returncode
+
+print 'Результат работы команды:'
+
+print stdoutdata
+
+print 'Вывод ошибок:'
+
+print stderrdata
+
+print 'Результат работы команды, построчно:'
+
+numLine=1
+
+for line in stdoutdata.split("\n"):
+
+ print str(numLine)+' '+line
+
+ numLine+=1 # инкремент
+
+print 'Количество строк в результате работы команды: '+str(len(stdoutdata.split("\n")))
+
+print 'Количество символов в результате работы команды: '+str(len(stdoutdata))
+
+Выведет:
+
+Команда: echo A; echo B; echo C
+
+Результат работы команды:
+
+A
+
+B
+
+C
+
+Вывод ошибок:
+
+None
+
+Результат работы команды, построчно:
+
+1 A
+
+2 B
+
+3 C
+
+4 
+
+Количество строк в результате работы команды: 4
+
+Количество символов в результате работы команды: 6
